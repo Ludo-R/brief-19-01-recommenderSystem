@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+    <title>Artists Recommandation</title>
+    <body>
+        <h1>Select you'r Artists :</h1>
+        <FORM name="Item_1" action="http://localhost:5000/result" method="post">
+                {% for a in listed %}
+                {{ a }}  :  <input type="checkbox" name="selection" value= {{a}} >/////
+                {% endfor %}
+                <input type="submit">
+        </FORM>
+    </body>
+</head>
