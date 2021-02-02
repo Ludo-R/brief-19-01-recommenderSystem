@@ -6,11 +6,38 @@
     <title>Artists Recommandation</title>
     <body>
         <h1>Select you'r Artists :</h1>
-        <FORM name="Item_1" action="http://localhost:5000/result" method="post">
-                {% for a in listed %}
-                <ul>{{a}}  :  <input type="checkbox" name="selection" value= '{{a}}' ></ul>
-                {% endfor %}
-                <input type="submit" action="submit">
-        </FORM>
-    </body>
+
+<FORM name="Item_1" action="http://localhost:5000/result" method="post">
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Artists..">
+<ul id="myUL">
+    <input type="submit" action="submit">
+    {% for a in listed %}
+    <li><p>{{a}}  :  <input type="checkbox" name="selection" value= '{{a}}' ></p></li>
+    {% endfor %}
+    <input type="submit" action="submit">
+</ul>
+</FORM>
+</body>
 </head>
+
+<script>
+    function myFunction() {
+      // Declare variables
+      var input, filter, ul, li, a, i, txtValue;
+      input = document.getElementById('myInput');
+      filter = input.value.toUpperCase();
+      ul = document.getElementById("myUL");
+      li = ul.getElementsByTagName('li');
+    
+      // Loop through all list items, and hide those who don't match the search query
+      for (i = 0; i < li.length; i++) {
+        p = li[i].getElementsByTagName("p")[0];
+        txtValue = p.textContent || p.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          li[i].style.display = "";
+        } else {
+          li[i].style.display = "none";
+        }
+      }
+    }
+    </script>
