@@ -3,13 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
-    <title>Job Search Engine</title>
+    <title>artist recommendation</title>
 </head>
 <body>
-   <h1>Resultat pour : {{selection}} </h1>
+   <h1>Recommandation :</h1>
    <div>
       <tr>
-         <td><b>Select :</b></td><br>
+         <td><b>{% for i in selection%}
+               {{i}}<br>
+                  {%endfor%}
+         </b></td><br>
+
       </tr>
    </div>
 </body>

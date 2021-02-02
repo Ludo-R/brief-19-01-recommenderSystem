@@ -8,9 +8,9 @@
         <h1>Select you'r Artists :</h1>
         <FORM name="Item_1" action="http://localhost:5000/result" method="post">
                 {% for a in listed %}
-                {{ a }}  :  <input type="checkbox" name="selection" value= {{a}} >/////
+                <ul>{{a}}  :  <input type="checkbox" name="selection" value= '{{a}}' ></ul>
                 {% endfor %}
-                <input type="submit">
+                <input type="submit" action="submit">
         </FORM>
     </body>
 </head>
